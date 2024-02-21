@@ -7,9 +7,29 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * This class contents information about Worker – element of collection
+ * @author ren1kron
+ */
+
 public class Worker extends Element implements Validatable {
 //    public Worker(String name, Coordinates coordinates, java.util.Date creationDate, float salary,
 //                  java.time.LocalDate startDate, Position position, Status status, Organization organization) {
+
+
+    public Worker(int id, String name, Organization organization, Position position, Status status, float salary,
+                  Coordinates coordinates, Date creationDate, LocalDate startDate) {
+        this.id = id;
+        this.name = name;
+        this.organization = organization;
+        this.position = position;
+        this.status = status;
+        this.salary = salary;
+        this.coordinates = coordinates;
+        this.creationDate = creationDate;
+        this.startDate = startDate;
+    }
+
 public Worker(String name, Coordinates coordinates, float salary,
               java.time.LocalDate startDate, Position position, Status status, Organization organization) {
     this.id = ++nextId; // как будто можно просто добавлять значение здесь каждый раз и всё будет ок. Но посмотрим,

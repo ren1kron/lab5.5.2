@@ -34,3 +34,12 @@ while (line.isEmpty) {
 
  public Worker(String name, Coordinates coordinates, java.util.Date creationDate, float salary,
                   java.time.LocalDate startDate, Position position, Status status, Organization organization)
+
+
+
+
+
+ id, name, organization, position, status, salary, coordinates, creationDate, 
+    startDate(we'll set it as a birthday)
+    
+    

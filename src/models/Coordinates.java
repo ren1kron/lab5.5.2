@@ -9,6 +9,16 @@ public class Coordinates implements Validatable {
         this.x = x;
         this.y = y;
     }
+    public Coordinates(String string) {
+        try {
+            try {
+                this.x = Float.parseFloat(string.split("//")[0]);
+            } catch (NumberFormatException ignored) { }
+            try {
+                this.y = Double.parseDouble(string.split("//")[1]);
+            } catch (NumberFormatException ignored) { }
+        } catch (ArrayIndexOutOfBoundsException ignored) { }
+    }
 
     @Override
     public boolean validate() {
@@ -16,6 +26,6 @@ public class Coordinates implements Validatable {
     }
     @Override
     public String toString() {
-        return "x.coordinate = " + x + " y.coordinate = " + y;
+        return x + "//" + y;
     }
 }
