@@ -4,6 +4,8 @@ import utility.Element;
 import utility.Validatable;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
@@ -42,6 +44,20 @@ public Worker(String name, Coordinates coordinates, float salary,
         this.position = position;
         this.status = status;
         this.organization = organization;
+    }
+
+    public static String[] toArray(Worker worker) {
+        var list = new ArrayList<String>();
+        list.add(String.valueOf(worker.getId()));
+        list.add(worker.getName());
+        list.add(worker.getOrganization() == null ? "null" : worker.getOrganization().toString());
+        list.add(worker.getPosition().toString());
+        list.add(worker.getStatus() == null ? "null" : worker.getStatus().toString());
+        list.add(String.valueOf(worker.getSalary()));
+        list.add(worker.getCoordinates().toString());
+        list.add(String.valueOf(worker.getCreationDate()));
+        list.add(worker.getStartDate().format(DateTimeFormatter.ISO_DATE));
+        return list.toArray(new String[0]);
     }
 
     private static int nextId = 0;

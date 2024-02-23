@@ -1,9 +1,14 @@
 package managers;
 
 
-import java.io.StringWriter;
+
+import java.io.*;
+import java.util.Map;
+
 
 import com.opencsv.*;
+import models.Worker;
+import utility.ParserCSV;
 import utility.console.Console;
 
 
@@ -21,19 +26,53 @@ public class DumpManager {
         this.console = console;
     }
 
-//    private String collectionToCSV(Collection<Dragon> collection) {
-//        try {
-//            StringWriter sw = new StringWriter();
-//            CSVWriter csvWriter = new CSVWriter(sw, ';');
-//            for (var e : collection) {
-//                csvWriter.writeNext(Dragon.toArray(e));
-//            }
-//            String csv = sw.toString();
-//            return csv;
-//        } catch (Exception e) {
-//            console.printError("Ошибка сериализации");
-//            return null;
-//        }
-//    }
+    /**
+     * Parses Map to CSV-string
+     * @param Map collection
+     * @return CSV-string
+     */
+    private String collectionToCSV(Map<Integer, Worker> Map) {
+        try {
+            StringWriter sw = new StringWriter();
+            CSVWriter csvWriter = new CSVWriter(sw);
+            for (var e: Map.entrySet()) {
+//                Worker worker = e.getValue();
+//                String[] values = Worker.toArray(worker);
+                csvWriter.writeNext(Worker.toArray((Worker) e));
+            }
+            return sw.toString();
+        } catch (Exception e) {
+            console.printError("Serialization error");
+            return null;
+        }
+    }
+    /**
+     * Writes collection to file.
+     * @param Map collection
+     */
+    public void writeCollection(Map<Integer, Worker> Map) {
+        OutputStreamWriter writer = null;
+        try {
+            var csv = collectionToCSV(Map);
+            if (csv == null) return;
+            writer = new OutputStreamWriter(new FileOutputStream(fileName));
+            try {
+                writer.write(csv);
+                writer.flush();
+                console.println("Collection was saved in file!");
+            } catch (IOException e) {
+                console.printError("Unexpected error while saving");
+            }
+        } catch (FileNotFoundException | NullPointerException e) {
+            console.printError("File was not found");
+        } finally {
+            try {
+                assert writer != null;
+                writer.close();
+            } catch(IOException e) {
+                console.printError("Error while closing the file");
+            }
+        }
+    }
 }
 
