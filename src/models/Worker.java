@@ -3,10 +3,14 @@ package models;
 import utility.Element;
 import utility.Validatable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -19,8 +23,9 @@ public class Worker extends Element implements Validatable {
 //                  java.time.LocalDate startDate, Position position, Status status, Organization organization) {
 
 
-    public Worker(int id, String name, Organization organization, Position position, Status status, float salary,
+    public Worker(Integer key, int id, String name, Organization organization, Position position, Status status, float salary,
                   Coordinates coordinates, Date creationDate, LocalDate startDate) {
+        this.key = key;
         this.id = id;
         this.name = name;
         this.organization = organization;
@@ -32,9 +37,10 @@ public class Worker extends Element implements Validatable {
         this.startDate = startDate;
     }
 
-public Worker(String name, Coordinates coordinates, float salary,
+public Worker(Integer key, String name, Coordinates coordinates, float salary,
               java.time.LocalDate startDate, Position position, Status status, Organization organization) {
-    this.id = ++nextId; // как будто можно просто добавлять значение здесь каждый раз и всё будет ок. Но посмотрим,
+        this.key = key;
+        this.id = ++nextId; // как будто можно просто добавлять значение здесь каждый раз и всё будет ок. Но посмотрим,
         // может, нужно будет убрать "++"
         this.name = name;
         this.coordinates = coordinates;
@@ -48,6 +54,7 @@ public Worker(String name, Coordinates coordinates, float salary,
 
     public static String[] toArray(Worker worker) {
         var list = new ArrayList<String>();
+        list.add(String.valueOf(worker.getKey()));
         list.add(String.valueOf(worker.getId()));
         list.add(worker.getName());
         list.add(worker.getOrganization() == null ? "null" : worker.getOrganization().toString());
@@ -59,6 +66,43 @@ public Worker(String name, Coordinates coordinates, float salary,
         list.add(worker.getStartDate().format(DateTimeFormatter.ISO_DATE));
         return list.toArray(new String[0]);
     }
+
+    public static Worker fromArray(String[] arr) {
+        int key;
+        int id;
+        String name;
+        Organization organization;
+        Position position;
+        Status status;
+        float salary;
+        Coordinates coordinates;
+        Date creationDate;
+        LocalDate startDate;
+        try {
+            key = Integer.parseInt(arr[0]);
+            id = Integer.parseInt(arr[1]);
+            name = arr[2];
+            organization = new Organization(arr[3]);
+            position = Position.valueOf(arr[4]);
+            status = Status.valueOf(arr[5]);
+            salary = Float.parseFloat(arr[6]);
+            coordinates = new Coordinates(arr[7]);
+            SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy");
+            try {
+                creationDate = formatter.parse(arr[8]);
+            } catch (ParseException e) {
+                creationDate = null;
+            }
+            try {
+                startDate = LocalDate.parse(arr[9], DateTimeFormatter.ISO_DATE);
+            } catch (DateTimeParseException e) {
+                startDate = null;
+            }
+            return new Worker(key, id, name, organization, position, status, salary, coordinates, creationDate, startDate);
+        } catch (ArrayIndexOutOfBoundsException e) {return null;}
+
+    }
+    private Integer key;
 
     private static int nextId = 0;
     private final int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение
@@ -78,7 +122,7 @@ public Worker(String name, Coordinates coordinates, float salary,
     }
     @Override
     public int compareTo(Element element) {
-        return (int)(this.id - element.getId());
+        return this.id - element.getId();
     }
     @Override
     public boolean validate() {
@@ -111,9 +155,8 @@ public Worker(String name, Coordinates coordinates, float salary,
     }
     @Override
     public String toString() {
-        return "id: "+ id +"; name: "+ name +"; coordinates: " + coordinates + "; Date of appointment: "+ creationDate +
-                "; salary: " + salary + "; Birthday: " + startDate + "; position: " + position + "; status: " + status
-                + "; organization: " + organization;
+        return "key: "+ key + "; id: "+ id +"; name: "+ name + "; organization: " + organization +"; coordinates: " + coordinates + "; Date of appointment: "+ creationDate +
+                "; salary: " + salary + "; Birthday: " + startDate + "; position: " + position + "; status: " + status;
     }
 
 
@@ -179,5 +222,13 @@ public Worker(String name, Coordinates coordinates, float salary,
 
     public void setOrganization(Organization organization) {
         this.organization = organization;
+    }
+
+    public Integer getKey() {
+        return key;
+    }
+
+    public void setKey(Integer key) {
+        this.key = key;
     }
 }

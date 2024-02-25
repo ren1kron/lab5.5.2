@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
-public class Organization implements Validatable {
+public class Organization implements Validatable, Comparable<Organization> {
     public Organization(String fullName, Integer annualTurnover) {
         this.fullName = fullName;
         this.annualTurnover = annualTurnover;
@@ -20,6 +20,22 @@ public class Organization implements Validatable {
     private String fullName; //Поле не может быть null
     private Integer annualTurnover; //Поле МОЖЕТ быть null, Значение поля должно быть больше 0
     private int employeesCount; //Значение поля должно быть больше 0
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public Integer getAnnualTurnover() {
+        return annualTurnover;
+    }
+
+    public void setAnnualTurnover(Integer annualTurnover) {
+        this.annualTurnover = annualTurnover;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
     public int getEmployeesCount() {
         return employeesCount;
@@ -52,5 +68,10 @@ public class Organization implements Validatable {
 
     public String toString() {
         return fullName + "//" + annualTurnover + "//" + employeesCount;
+    }
+
+    @Override
+    public int compareTo(Organization o) {
+        return (this.annualTurnover - o.annualTurnover);
     }
 }

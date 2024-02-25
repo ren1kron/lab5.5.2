@@ -15,13 +15,14 @@ import static java.util.Collections.max;
 
 public class CollectionManager {
 //    int id;
-    private Map<Integer, Worker> collection = new LinkedHashMap<>();
-//    private Set<Organization> organizations = new HashSet<>();
+    private Map<Integer, Worker> map = new LinkedHashMap<>();
+//    private Map<Organization, Map<Integer, Worker>> OrganizationMap = new LinkedHashMap<>();
+    private Set<Organization> organizations = new HashSet<>();
     private LocalDateTime lastInItTime;
     private LocalDateTime lastSaveTime;
 
-    public Map<Integer, Worker> getCollection() {
-        return collection;
+    public Map<Integer, Worker> getMap() {
+        return map;
     }
 
 //    public Set<Organization> getOrganizations() {
@@ -29,13 +30,14 @@ public class CollectionManager {
 //    }
 
     public void clearCollection() {
-        collection.clear();
+        map.clear();
+        organizations.clear();
     }
     public void add(Integer key, Worker worker) {
 //        id = max(collection.keySet()) + 1;
-        collection.put(key, worker);
+        map.put(key, worker);
         worker.getOrganization().EmployeeAdded();
-//        organizations.add(worker.getOrganization());
+        organizations.add(worker.getOrganization());
     }
 
 //    public void showCollectionInfo() {
