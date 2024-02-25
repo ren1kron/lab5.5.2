@@ -12,6 +12,7 @@ public class Main {
     static Map<Integer, Worker> map = new LinkedHashMap<>();
     public static void main(String[] args) throws AskExitExecption {
         var console = new StandardConsole();
+        // right now here some tests of Dump Manager
         DumpManager dumpManager = new DumpManager("Workers.csv", console);
         dumpManager.readCsv(map);
         for (var e : map.values()) {
