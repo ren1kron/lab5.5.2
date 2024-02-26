@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="Reinstalling file in Maven">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workers.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/Asker.java" afterDir="false" />
+    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: Dump Manager">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Workers.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/DumpManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/DumpManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Organization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Position.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Worker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/ParserCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/ParserCSV.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +93,7 @@
       <workItem from="1708285895431" duration="2364000" />
       <workItem from="1708289528164" duration="101000" />
       <workItem from="1708289715565" duration="38788000" />
-      <workItem from="1708716958250" duration="30137000" />
+      <workItem from="1708716958250" duration="37881000" />
     </task>
     <task id="LOCAL-00001" summary="Reinstalling file in Maven">
       <option name="closed" value="true" />
@@ -133,7 +127,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708672535783</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Reinstalling file in Maven">
+      <option name="closed" value="true" />
+      <created>1708889776978</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708889776978</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add: Dump Manager">
+      <option name="closed" value="true" />
+      <created>1708889888471</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708889888471</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,7 +168,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Reinstalling file in Maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reinstalling file in Maven" />
+    <MESSAGE value="add: Dump Manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: Dump Manager" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

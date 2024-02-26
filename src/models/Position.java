@@ -3,6 +3,7 @@ package models;
 public enum Position {
     MANAGER,
     LABORER,
+    MAID_IN_STOCKINGS,
     BAKER;
     public static String names() {
         StringBuilder nameList = new StringBuilder();

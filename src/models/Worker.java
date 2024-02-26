@@ -10,7 +10,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -19,10 +18,7 @@ import java.util.Objects;
  */
 
 public class Worker extends Element implements Validatable {
-//    public Worker(String name, Coordinates coordinates, java.util.Date creationDate, float salary,
-//                  java.time.LocalDate startDate, Position position, Status status, Organization organization) {
-
-
+    public Worker() { }
     public Worker(Integer key, int id, String name, Organization organization, Position position, Status status, float salary,
                   Coordinates coordinates, Date creationDate, LocalDate startDate) {
         this.key = key;
@@ -102,10 +98,12 @@ public Worker(Integer key, String name, Coordinates coordinates, float salary,
         } catch (ArrayIndexOutOfBoundsException e) {return null;}
 
     }
-    private Integer key;
+    private Integer key; // По ТЗ при вводе нового элемента нам необходимо ввести его ключ.
+    // ID генерируется автоматически, остальные поля не уникальны. Поэтому я добавил данное поле, которое решит возникшую проблему.
+    // Соответственно, key должен быть уникален и, для простоты ввода, быть больше 0
 
     private static int nextId = 0;
-    private final int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение
+    private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение
     // этого поля должно генерироваться автоматически
     private String name; //Поле НЕ может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле НЕ может быть null
@@ -117,6 +115,9 @@ public Worker(Integer key, String name, Coordinates coordinates, float salary,
     private Organization organization; //Поле МОЖЕТ быть null
 
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public void touchNextId() {
         nextId++;
     }

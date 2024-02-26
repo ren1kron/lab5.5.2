@@ -3,17 +3,18 @@ package managers;
 
 
 import java.io.*;
-import java.nio.Buffer;
-import java.util.LinkedHashMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.Date;
 import java.util.Map;
-import java.util.Scanner;
 
 
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvValidationException;
-import models.Organization;
-import models.Worker;
-import utility.ParserCSV;
+import models.*;
 import utility.console.Console;
 
 
@@ -26,6 +27,7 @@ public class DumpManager {
 
 //    Чтение данных из файла необходимо реализовать с помощью класса java.io.FileReader
 //    Запись данных в файл необходимо реализовать с помощью класса java.io.OutputStreamWriter
+    private final static String[] strings = {"key", "id", "name", "organization", "position", "status", "salary", "coordinates", "date of appointment", "birthday"};
     private final String fileName;
     private final Console console;
 
@@ -48,25 +50,58 @@ public class DumpManager {
     public void readCsv(Map<Integer, Worker> map) {
         try {
             CSVReader csvReader = new CSVReaderBuilder(new FileReader(fileName))
-    //                    .withSkipLines(1)
+                    .withSkipLines(1)
                     .withCSVParser(parser)
                     .build();
-            String[] data = csvReader.readNext();
-            Worker worker = Worker.fromArray(data);
-            map.put(worker.getKey(), worker);
+            String[] line;
+            while ((line = csvReader.readNext()) != null) {
+//                Worker worker = Worker.fromArray(data);
+                // "key", "id", "name", "organization", "coordinates", "date of appointment", "salary", "birthday", "position", "status"
+                // "key";"id";"name";"organization";"position";"status";"salary";"coordinates";"date of appointment";"birthday"
+                Worker worker = new Worker();
+                worker.setKey(Integer.parseInt(line[0])); // key
+                worker.setId(Integer.parseInt(line[1])); // id
+                worker.setName(line[2]); // name
+                worker.setOrganization(new Organization(line[3])); // org
+                worker.setPosition(Position.valueOf(line[4])); // pos
+                worker.setStatus(Status.valueOf(line[5])); // status
+                worker.setSalary(Float.parseFloat(line[6])); // salary
+                worker.setCoordinates(new Coordinates(line[7])); // coords
+                Date creationDate;
+                SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy");
+                try {
+                    creationDate = formatter.parse(line[8]);
+                } catch (ParseException pe) {
+                    creationDate = null;
+                }
+                worker.setCreationDate(creationDate); // date of appointment
+                LocalDate startDate;
+                try {
+                    startDate = LocalDate.parse(line[9], DateTimeFormatter.ISO_DATE);
+                } catch (DateTimeParseException dtpe) {
+                    startDate = null;
+                }
+                worker.setStartDate(startDate); // birthday
+
+                map.put(worker.getKey(), worker);
+            }
+            if (map != null) console.println("Collection was successfully downloaded!");
+        } catch (IOException ioe) {
+            console.printError("The entered file could not be found");
+        } catch (CsvValidationException cve) {
+            console.printError("The entered csv-file is not valid");
+        }
+    }
+
+
 //            for (var line : data) {
 //                System.out.println(line);
 ////                Worker worker = Worker.fromArray(line.split(";"));
 ////                assert worker != null;
 ////                map.put(worker.getKey(), worker);
 //            }
-            if (map != null) console.println("Collection was successfully downloaded!");
-        } catch (IOException e) {
-            console.printError("The entered file could not be found");
-        } catch (CsvValidationException e) {
-            console.printError("The entered csv-file is not valid");
-        }
-    }
+
+
 
     /**
      * Saves the collection to CSV
@@ -74,12 +109,12 @@ public class DumpManager {
      */
     // java.io.OutputStreamWriter should be used here
     public void writeCsv(Map<Integer, Worker> map) {
-        String[] strings = {"key", "id", "name", "organization", "coordinates", "date of appointment", "salary", "birthday", "position", "status"};
         try {
             OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(fileName));
             ICSVWriter csvWriter = new CSVWriterBuilder(writer)
                     .withParser(parser)
                     .build();
+            csvWriter.writeNext(strings);
             for (var worker: map.values()) {
 //                var worker = map.get(key);
                 csvWriter.writeNext(Worker.toArray(worker));
