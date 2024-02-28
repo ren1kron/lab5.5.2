@@ -1,12 +1,10 @@
 package managers;
 
-import models.Organization;
 import models.Worker;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
-import static java.util.Collections.max;
 
 /**
  * Manages collection
@@ -15,37 +13,66 @@ import static java.util.Collections.max;
 
 public class CollectionManager {
 //    int id;
-    private Map<Integer, Worker> map = new LinkedHashMap<>();
+    private Map<Integer, Worker> keyMap = new LinkedHashMap<>();
+    private Map<Integer, Worker> idMap = new LinkedHashMap<>();
 //    private Map<Organization, Map<Integer, Worker>> OrganizationMap = new LinkedHashMap<>();
-    private Set<Organization> organizations = new HashSet<>();
-    private LocalDateTime lastInItTime;
+//    private Set<Organization> organizations = new HashSet<>();
+    private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime;
+    private final DumpManager dumpManager;
 
-    public Map<Integer, Worker> getMap() {
-        return map;
+    public CollectionManager(DumpManager dumpManager) {
+        this.lastInitTime = null;
+        this.lastSaveTime = null;
+        this.dumpManager = dumpManager;
+    }
+
+    /**
+     * @return map of workers
+     */
+    public Map<Integer, Worker> getKeyMap() {
+        return keyMap;
+    }
+
+    /**
+     * @return Worker by their id
+     */
+    public Worker byId(int id) {
+        return idMap.get(id);
     }
 
 //    public Set<Organization> getOrganizations() {
 //        return organizations;
 //    }
 
-    public void clearCollection() {
-        map.clear();
-        organizations.clear();
+    /**
+     * Clears keyMap and idMap
+     */
+    public void clear() {
+        keyMap.clear();
+        idMap.clear();
     }
-    public void add(Integer key, Worker worker) {
+
+    /**
+     * Adds worker to maps
+     * @param worker added worker
+     */
+    public void add(Worker worker) {
 //        id = max(collection.keySet()) + 1;
-        map.put(key, worker);
-        worker.getOrganization().EmployeeAdded();
-        organizations.add(worker.getOrganization());
+        keyMap.put(worker.getKey(), worker);
+        idMap.put(worker.getId(), worker);
+//        organizations.add(worker.getOrganization());
+//        worker.getOrganization().EmployeeAdded();
     }
+
+
 
 //    public void showCollectionInfo() {
 //
 //    }
 
-    public LocalDateTime getLastInItTime() {
-        return lastInItTime;
+    public LocalDateTime getLastInitTime() {
+        return lastInitTime;
     }
 
     public LocalDateTime getLastSaveTime() {

@@ -12,17 +12,18 @@ public class Main {
     static Map<Integer, Worker> map = new LinkedHashMap<>();
     public static void main(String[] args) throws AskExitExecption {
         var console = new StandardConsole();
-        // right now here some tests of Dump Manager
         DumpManager dumpManager = new DumpManager("Workers.csv", console);
-        dumpManager.readCsv(map);
-        for (var e : map.values()) {
-            System.out.println(e.toString());
-            var org = e.getOrganization();
-            System.out.println(org.getFullName() + "; " + org.getAnnualTurnover() + "; " + org.getEmployeesCount());
-        }
-        Worker worker = Asker.askWorker(console);
-        map.put(worker.getKey(), worker);
-        for (var e : map.values()) System.out.println(e.toString());
-        dumpManager.writeCsv(map);
+
+
+//        dumpManager.readCsv(map);
+//        for (var e : map.values()) {
+//            System.out.println(e.toString());
+//            var org = e.getOrganization();
+//            System.out.println(org.getFullName() + "; " + org.getAnnualTurnover() + "; " + org.getEmployeesCount());
+//        }
+//        Worker worker = Asker.askWorker(console);
+//        map.put(worker.getKey(), worker);
+//        for (var e : map.values()) System.out.println(e.toString());
+//        dumpManager.writeCsv(map);
     }
 }

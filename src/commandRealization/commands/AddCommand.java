@@ -15,6 +15,6 @@ public class AddCommand extends Command {
     }
     @Override
     public void execute() {
-        collectionManager.add(key, worker);
+        collectionManager.add(worker);
     }
 }

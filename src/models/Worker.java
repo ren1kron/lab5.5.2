@@ -33,11 +33,29 @@ public class Worker extends Element implements Validatable {
         this.startDate = startDate;
     }
 
-public Worker(Integer key, String name, Coordinates coordinates, float salary,
-              java.time.LocalDate startDate, Position position, Status status, Organization organization) {
+//    public Worker(Integer key, int id, String name, Coordinates coordinates, float salary, LocalDate startDate, Position position, Status status, Organization organization) {
+//        super();
+//    }
+
+public Worker(Integer key, String name, Organization organization, Position position, Status status, float salary, Coordinates coordinates,
+              java.time.LocalDate startDate) {
         this.key = key;
         this.id = ++nextId; // как будто можно просто добавлять значение здесь каждый раз и всё будет ок. Но посмотрим,
         // может, нужно будет убрать "++"
+        this.name = name;
+        this.coordinates = coordinates;
+        this.creationDate = new Date();
+        this.salary = salary;
+        this.startDate = startDate;
+        this.position = position;
+        this.status = status;
+        this.organization = organization;
+    }
+
+    public Worker(Integer key, int id, String name, Organization organization, Position position, Status status, float salary, Coordinates coordinates,
+                  java.time.LocalDate startDate) {
+        this.key = key;
+        this.id = id;
         this.name = name;
         this.coordinates = coordinates;
         this.creationDate = new Date();
@@ -156,8 +174,8 @@ public Worker(Integer key, String name, Coordinates coordinates, float salary,
     }
     @Override
     public String toString() {
-        return "key: "+ key + "; id: "+ id +"; name: "+ name + "; organization: " + organization +"; coordinates: " + coordinates + "; Date of appointment: "+ creationDate +
-                "; salary: " + salary + "; Birthday: " + startDate + "; position: " + position + "; status: " + status;
+        return "key: "+ key + "; id: "+ id +"; name: "+ name + "; organization: {" + organization +"}; coordinates: {" + coordinates + "}; Date of appointment: "+ creationDate +
+                "; salary: " + salary + "; Birthday: {" + startDate + "}; position: " + position + "; status: " + status;
     }
 
 

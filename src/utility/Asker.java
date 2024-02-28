@@ -7,7 +7,7 @@ import utility.console.Console;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Map;
+import java.util.Date;
 import java.util.NoSuchElementException;
 
 /**
@@ -17,32 +17,39 @@ import java.util.NoSuchElementException;
  */
 public class Asker {
     // TODO chk if inserted organization exist
-    public static Worker askWorker(Console console) throws AskExitExecption {
-        try {
-            Integer key = askKey(console);
-            String name;
-            do {
-                console.print("Enter the name of worker: ");
-                name = console.readln().trim();
-                if (name.equals("exit")) throw new AskExitExecption();
-            } while (name.isEmpty());
-//            do {
-//                console.print("Enter the Full name of organization worker is associated with: ");
-//                organizationName = console.readln().trim();
-//                if (organizationName.equals("exit")) throw new AskExitException();
-//            } while (organizationName.isEmpty());
+    public static Worker askWorker(Console console, int id) throws AskExitExecption {
+        Worker worker;
+        while (true) {
+            try {
+                Integer key = askKey(console);
+                String name;
+                do {
+                    console.print("Enter the name of worker: ");
+                    name = console.readln().trim();
+                    if (name.equals("exit")) throw new AskExitExecption();
+                } while (name.isEmpty());
+                //            do {
+                //                console.print("Enter the Full name of organization worker is associated with: ");
+                //                organizationName = console.readln().trim();
+                //                if (organizationName.equals("exit")) throw new AskExitException();
+                //            } while (organizationName.isEmpty());
 
-            var organization = askOrganization(console);
-            var position = askPosition(console);
-            var status = askStatus(console);
-            var salary = askSalary(console);
-            var coordinates = askCoordinates(console);
-            var startDate = askStartDate(console);
-//            var creationDate = new Date();
-            return new Worker(key, name, coordinates, salary, startDate, position, status, organization);
-        } catch (NoSuchElementException | IllegalStateException e) {
-            console.printError("Illegal parameter");
-            return null;
+                var organization = askOrganization(console);
+                var position = askPosition(console);
+                var status = askStatus(console);
+                var salary = askSalary(console);
+                var coordinates = askCoordinates(console);
+                var startDate = askStartDate(console);
+                //            var creationDate = new Date();
+                //            Integer key, int id, String name, Organization organization, Position position, Status status, float salary,
+                //            Coordinates coordinates, Date creationDate, LocalDate startDate
+                worker = new Worker(key, name, organization, position, status, salary, coordinates, startDate);
+                if (worker.validate()) return worker;
+                else console.printError("Inserted worker has invalid values. Try again");
+            } catch (NoSuchElementException | IllegalStateException e) {
+                console.printError("Illegal parameter");
+                return null;
+            }
         }
     }
 
@@ -52,6 +59,7 @@ public class Asker {
             while (true) {
                 console.print("Enter \"x\" coordinates: ");
                 var line = console.readln().trim();
+                line = line.replace("\\s","");
                 if (line.equals("exit")) throw new AskExitExecption();
                 if (!line.isEmpty()) {
                     try {
@@ -65,6 +73,7 @@ public class Asker {
             while (true) {
                 console.print("Enter \"y\" coordinates: ");
                 var line = console.readln().trim();
+                line = line.replace("\\s","");
                 if (line.equals("exit")) throw new AskExitExecption();
                 if (!line.isEmpty()) {
                     try {
@@ -86,6 +95,7 @@ public class Asker {
             while (true) {
                 console.print("Enter the worker's salary (in USD): $");
                 var line = console.readln().trim();
+                line = line.replace("\\s","");
                 if (line.equals("exit")) throw new AskExitExecption();
                 if (!line.isEmpty()) {
                     return Float.parseFloat(line);
@@ -98,7 +108,6 @@ public class Asker {
     }
 
     public static Position askPosition(Console console) throws AskExitExecption {
-        Position position;
         try {
             while (true) {
                 console.print("Enter the position (" + Position.names().toLowerCase() + ") of Worker: ");
@@ -176,20 +185,40 @@ public class Asker {
             else organizationName = line; break;
         }
 
-        Integer orgAnnualTurnover;
+        int employeesCount;
+        while (true) {
+            console.print("Enter the Employees count of the Organization worker associated with: ");
+            var line = console.readln().trim();
+            line = line.replace("\\s","");
+            if (line.equals("exit")) throw new AskExitExecption();
+//            else if (line.isEmpty()) return new Organization(organizationName, null);
+            if (!line.isEmpty()) {
+                try {
+                    employeesCount = Integer.parseInt(line);
+                    break;
+//                    return new Organization(organizationName, orgAnnualTurnover);
+                } catch (NumberFormatException ignored) { }
+            }
+        }
+
+        int orgAnnualTurnover;
         while (true) {
             console.print("Enter the Annual Turnover of the Organization worker is associated with in USD (ENTER if " +
                     "annual turnover of organization is unknown): $");
             var line = console.readln().trim();
+            line = line.replace("\\s","");
             if (line.equals("exit")) throw new AskExitExecption();
-            else if (line.isEmpty()) return new Organization(organizationName, null);
+//            else if (line.isEmpty()) return new Organization(organizationName, null);
+            else if (line.isEmpty()) return new Organization(organizationName, null, employeesCount);
             else {
                 try {
                     orgAnnualTurnover = Integer.parseInt(line);
-                    return new Organization(organizationName, orgAnnualTurnover);
+                    return new Organization(organizationName, orgAnnualTurnover, employeesCount);
                 } catch (NumberFormatException ignored) { }
             }
         }
+
+
 
 //        else if (organizationName)
     }
@@ -199,6 +228,7 @@ public class Asker {
             while (true) {
                 console.print("Enter the Key of Worker (it must be an integer): ");
                 var line = console.readln().trim();
+                line = line.replace("\\s","");
                 if (line.equals("exit")) throw new AskExitExecption();
                 if (!line.isEmpty()) {
                     return Integer.parseInt(line);

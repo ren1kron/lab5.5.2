@@ -13,6 +13,6 @@ public class ClearCommand extends Command {
 
     @Override
     public void execute() {
-        collectionManager.clearCollection();
+        collectionManager.clear();
     }
 }
