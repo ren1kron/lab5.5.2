@@ -1,7 +1,7 @@
 package managers;
 
 import commandRealization.Command;
-import commandRealization.commands.AddCommand;
+import commandRealization.commands.InsertCommand;
 import commandRealization.commands.ClearCommand;
 import commandRealization.commands.HelpCommand;
 
@@ -15,7 +15,7 @@ public class CommandManager {
 
 //    public void register() {
 ////        commands.put("help", new HelpCommand());
-//        commands.put("add", new AddCommand(collectionManager));
+//        commands.put("add", new InsertCommand(collectionManager));
 //        commands.put("clear", new ClearCommand(collectionManager));
 //    }
 

@@ -7,7 +7,6 @@ import utility.console.Console;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Date;
 import java.util.NoSuchElementException;
 
 /**
@@ -17,11 +16,11 @@ import java.util.NoSuchElementException;
  */
 public class Asker {
     // TODO chk if inserted organization exist
-    public static Worker askWorker(Console console, int id) throws AskExitExecption {
+    public static Worker askWorker(Console console, Integer key, int id) throws AskExitExecption {
         Worker worker;
         while (true) {
             try {
-                Integer key = askKey(console);
+//                Integer key = askKey(console);
                 String name;
                 do {
                     console.print("Enter the name of worker: ");
@@ -43,7 +42,8 @@ public class Asker {
                 //            var creationDate = new Date();
                 //            Integer key, int id, String name, Organization organization, Position position, Status status, float salary,
                 //            Coordinates coordinates, Date creationDate, LocalDate startDate
-                worker = new Worker(key, name, organization, position, status, salary, coordinates, startDate);
+//                worker = new Worker(key, name, organization, position, status, salary, coordinates, startDate);
+                worker = new Worker(key, id, name, organization, position, status, salary, coordinates, startDate);
                 if (worker.validate()) return worker;
                 else console.printError("Inserted worker has invalid values. Try again");
             } catch (NoSuchElementException | IllegalStateException e) {

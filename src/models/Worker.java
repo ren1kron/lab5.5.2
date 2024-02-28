@@ -1,5 +1,6 @@
 package models;
 
+import managers.CollectionManager;
 import utility.Element;
 import utility.Validatable;
 
@@ -66,6 +67,15 @@ public Worker(Integer key, String name, Organization organization, Position posi
         this.organization = organization;
     }
 
+    /**
+     * Updates value of next ID
+     * @param collectionManager manager of collection which contains workers
+     */
+    @Deprecated
+    public static void updateNextId(CollectionManager collectionManager) {
+        nextId = collectionManager.maxId();
+    }
+
     public static String[] toArray(Worker worker) {
         var list = new ArrayList<String>();
         list.add(String.valueOf(worker.getKey()));
@@ -81,6 +91,7 @@ public Worker(Integer key, String name, Organization organization, Position posi
         return list.toArray(new String[0]);
     }
 
+    @Deprecated
     public static Worker fromArray(String[] arr) {
         int key;
         int id;
@@ -136,6 +147,7 @@ public Worker(Integer key, String name, Organization organization, Position posi
     public void setId(int id) {
         this.id = id;
     }
+    @Deprecated
     public void touchNextId() {
         nextId++;
     }

@@ -58,6 +58,7 @@ public class DumpManager {
 //                Worker worker = Worker.fromArray(data);
                 // "key", "id", "name", "organization", "coordinates", "date of appointment", "salary", "birthday", "position", "status"
                 // "key";"id";"name";"organization";"position";"status";"salary";"coordinates";"date of appointment";"birthday"
+//                "key";"id";"name";"organization";"position";"status";"salary";"coordinates";"date of appointment";"birthday"
                 Worker worker = new Worker();
                 worker.setKey(Integer.parseInt(line[0])); // key
                 worker.setId(Integer.parseInt(line[1])); // id
@@ -82,8 +83,7 @@ public class DumpManager {
                     startDate = null;
                 }
                 worker.setStartDate(startDate); // birthday
-
-                map.put(worker.getKey(), worker);
+                if (worker.validate()) map.put(worker.getKey(), worker);
             }
             if (map != null) console.println("Collection was successfully downloaded!");
         } catch (IOException ioe) {

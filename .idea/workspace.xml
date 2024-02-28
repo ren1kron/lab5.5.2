@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="fix: readCsv in Dump Manager (it had been reading only one line in file, now it reads all of it)">
+    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="upd: CollectionManager (work on this thing finally started...)&#10;Asker (added simple validation check">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Workers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/DumpManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/DumpManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Worker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/ParserCSV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/Asker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Asker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +96,7 @@
       <workItem from="1708289528164" duration="101000" />
       <workItem from="1708289715565" duration="38788000" />
       <workItem from="1708716958250" duration="38955000" />
-      <workItem from="1709027003648" duration="2725000" />
+      <workItem from="1709027003648" duration="18996000" />
     </task>
     <task id="LOCAL-00001" summary="Reinstalling file in Maven">
       <option name="closed" value="true" />
@@ -152,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708953976431</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="upd: CollectionManager (work on this thing finally started...)&#10;Asker (added simple validation check">
+      <option name="closed" value="true" />
+      <created>1709114998950</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709114998950</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +189,8 @@
     <MESSAGE value="Reinstalling file in Maven" />
     <MESSAGE value="add: Dump Manager" />
     <MESSAGE value="fix: readCsv in Dump Manager (it had been reading only one line in file, now it reads all of it)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: readCsv in Dump Manager (it had been reading only one line in file, now it reads all of it)" />
+    <MESSAGE value="upd: CollectionManager (work on this thing finally started...)&#10;Asker (added simple validation check" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: CollectionManager (work on this thing finally started...)&#10;Asker (added simple validation check" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
