@@ -5,13 +5,13 @@ import managers.CollectionManager;
 import utility.ExecutionResponse;
 
 /**
- * Command 'save'. Saves the collection changes that the user made in the last session
+ * Command 'show'. Displays all elements of collection
  * @author ren1kron
  */
-public class SaveCommand extends Command {
+public class ShowCommand extends Command {
     private final CollectionManager collectionManager;
-    public SaveCommand(CollectionManager collectionManager) {
-        super("save", "Saves collection to file");
+    public ShowCommand(CollectionManager collectionManager) {
+        super("show", "Displays all elements of collection");
         this.collectionManager = collectionManager;
     }
 
@@ -24,7 +24,6 @@ public class SaveCommand extends Command {
     public ExecutionResponse apply(String[] arguments) {
         if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Wrong amount of arguments!\nYou suppose to write: '" + getName() + "'");
 
-        collectionManager.saveMap();
-        return new ExecutionResponse("");
+        return new ExecutionResponse(collectionManager.toString());
     }
 }

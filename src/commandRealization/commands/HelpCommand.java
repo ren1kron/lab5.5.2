@@ -6,7 +6,10 @@ import utility.ExecutionResponse;
 
 import java.util.stream.Collectors;
 
-
+/**
+ * Command 'help'. This command displays help for available commands
+ * @author ren1kron
+ */
 public class HelpCommand extends Command {
     private final CommandManager commandManager;
     public HelpCommand(CommandManager commandManager) {
@@ -15,9 +18,9 @@ public class HelpCommand extends Command {
     }
 
     /**
-     *
+     * Applies command
      * @param arguments Arguments for applying command
-     * @return Command execution status
+     * @return Command status
      */
     @Override
     public ExecutionResponse apply(String[] arguments) {

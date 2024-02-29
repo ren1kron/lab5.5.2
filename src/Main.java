@@ -21,7 +21,7 @@ public class Main {
         var commandManager = new CommandManager() {{
             register("help", new HelpCommand(this));
             register("info", new InfoCommand(collectionManager));
-            // show
+            register("show", new ShowCommand(collectionManager));
             register("insert", new InsertCommand(console, collectionManager));
             register("update", new UpdateCommand(console,collectionManager));
             register("remove_key", new RemoveKeyCommand(collectionManager));

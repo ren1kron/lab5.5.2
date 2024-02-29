@@ -9,11 +9,10 @@ import utility.ExecutionResponse;
 import utility.console.Console;
 
 /**
- * This command updates element with inserted id
+ * Command 'update id {element}'. This command updates element with inserted id
  * @author ren1kron
  */
 public class UpdateCommand extends Command {
-
     private final Console console;
     private final CollectionManager collectionManager;
     public UpdateCommand(Console console, CollectionManager collectionManager) {
@@ -22,6 +21,11 @@ public class UpdateCommand extends Command {
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Applies command
+     * @param arguments Arguments for applying command
+     * @return Command status
+     */
     @Override
     public ExecutionResponse apply(String[] arguments) {
         try {

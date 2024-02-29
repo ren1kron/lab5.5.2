@@ -9,7 +9,7 @@ import utility.ExecutionResponse;
 import utility.console.Console;
 
 /**
- * Adds to collection new worker with inserted key
+ * Command 'insert'. Adds to collection new worker with inserted key
  * @author ren1kron
  */
 public class InsertCommand extends Command {
@@ -23,8 +23,9 @@ public class InsertCommand extends Command {
     }
 
     /**
+     * Applies command
      * @param arguments Arguments for applying command
-     * @return Command execution status
+     * @return Command status
      */
     @Override
     public ExecutionResponse apply(String[] arguments) {

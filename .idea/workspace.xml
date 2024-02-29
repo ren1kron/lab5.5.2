@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: Realization for Commands and first Command – InsertCommand&#10;upd: Now worker get his id in CollectionManager. It is more stable, because now program check if for the lowest free ID">
-      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/InfoCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/RemoveKeyCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/SaveCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/UpdateCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/Runner.java" afterDir="false" />
+    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: Runner and several Commands">
+      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/ShowCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Workers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Workers.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/ClearCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/InfoCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/InsertCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/InsertCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/CollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/DumpManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/DumpManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/Asker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Asker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/ExecutionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/ExecutionResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/console/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/console/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/console/StandardConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/console/StandardConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/RemoveKeyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/RemoveKeyCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +99,7 @@
       <workItem from="1708289528164" duration="101000" />
       <workItem from="1708289715565" duration="38788000" />
       <workItem from="1708716958250" duration="38955000" />
-      <workItem from="1709027003648" duration="46014000" />
+      <workItem from="1709027003648" duration="48043000" />
     </task>
     <task id="LOCAL-00001" summary="Reinstalling file in Maven">
       <option name="closed" value="true" />
@@ -184,7 +173,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709137958622</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add: Runner and several Commands">
+      <option name="closed" value="true" />
+      <created>1709215839011</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709215839011</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add: Runner and several Commands">
+      <option name="closed" value="true" />
+      <created>1709216000648</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1709216000648</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +218,8 @@
     <MESSAGE value="fix: readCsv in Dump Manager (it had been reading only one line in file, now it reads all of it)" />
     <MESSAGE value="upd: CollectionManager (work on this thing finally started...)&#10;Asker (added simple validation check" />
     <MESSAGE value="add: Realization for Commands and first Command – InsertCommand&#10;upd: Now worker get his id in CollectionManager. It is more stable, because now program check if for the lowest free ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: Realization for Commands and first Command – InsertCommand&#10;upd: Now worker get his id in CollectionManager. It is more stable, because now program check if for the lowest free ID" />
+    <MESSAGE value="add: Runner and several Commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: Runner and several Commands" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

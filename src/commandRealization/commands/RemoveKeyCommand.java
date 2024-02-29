@@ -4,6 +4,10 @@ import commandRealization.Command;
 import managers.CollectionManager;
 import utility.ExecutionResponse;
 
+/**
+ * Command 'remove_key'. Removes element from collection by its key.
+ * @author ren1kron
+ */
 public class RemoveKeyCommand extends Command {
     private final CollectionManager collectionManager;
     public RemoveKeyCommand(CollectionManager collectionManager) {
@@ -11,6 +15,11 @@ public class RemoveKeyCommand extends Command {
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Applies command
+     * @param arguments Arguments for applying command
+     * @return Command status
+     */
     @Override
     public ExecutionResponse apply(String[] arguments) {
         if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Wrong amount of arguments!\nYou suppose to write: '" + getName() + "'");
