@@ -47,7 +47,7 @@ public class Runner {
                 scanner.nextLine();
             } catch (NoSuchElementException emergensyExit) {
                 console.printError("Saving data to file...");
-                runCommand(new String[]{"save", ""});
+//                runCommand(new String[]{"save", ""}); // we can add it if we want to
                 runCommand(new String[]{"exit", ""});
                 return;
             }
