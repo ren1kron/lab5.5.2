@@ -1,16 +1,14 @@
+import commandRealization.commands.*;
 import exceptions.AskExitExecption;
 import managers.CollectionManager;
+import managers.CommandManager;
 import managers.DumpManager;
-import models.*;
-import utility.Asker;
+import utility.Runner;
 import utility.console.StandardConsole;
 
-import java.util.*;
-
-//import org.apache.commons.lang3.StringUtils
 
 public class Main {
-    static Map<Integer, Worker> map = new LinkedHashMap<>();
+//    static Map<Integer, Worker> map = new LinkedHashMap<>();
     public static void main(String[] args) throws AskExitExecption {
         var console = new StandardConsole();
         DumpManager dumpManager = new DumpManager("Workers.csv", console);
@@ -19,6 +17,43 @@ public class Main {
             console.printError("Not valid csv-file: some keys and/or IDs was repeated");
             System.exit(1);
         }
+
+        var commandManager = new CommandManager() {{
+            register("help", new HelpCommand(this));
+            register("info", new InfoCommand(collectionManager));
+            // show
+            register("insert", new InsertCommand(console, collectionManager));
+            register("update", new UpdateCommand(console,collectionManager));
+            register("remove_key", new RemoveKeyCommand(collectionManager));
+            register("clear", new ClearCommand(collectionManager));
+            register("save", new SaveCommand(collectionManager));
+            // execute script
+            // remove_lower
+            // replace_if_greater
+            // remove_greater_key
+            // group_counting_by_creation_date
+            // filter_by_position
+            // print_field_descending_salary
+        }};
+//        help : вывести справку по доступным командам
+//        info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
+//        show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении
+//        insert null {element} : добавить новый элемент с заданным ключом
+//        update id {element} : обновить значение элемента коллекции, id которого равен заданному
+//        remove_key null : удалить элемент из коллекции по его ключу
+//        clear : очистить коллекцию
+//        save : сохранить коллекцию в файл
+//        execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.
+//                exit : завершить программу (без сохранения в файл)
+//        remove_lower {element} : удалить из коллекции все элементы, меньшие, чем заданный
+//        replace_if_greater null {element} : заменить значение по ключу, если новое значение больше старого
+//        remove_greater_key null : удалить из коллекции все элементы, ключ которых превышает заданный
+//        group_counting_by_creation_date : сгруппировать элементы коллекции по значению поля creationDate, вывести количество элементов в каждой группе
+//        filter_by_position position : вывести элементы, значение поля position которых равно заданному
+//        print_field_descending_salary : вывести значения поля salary всех элементов в порядке убывания
+
+        new Runner(console, commandManager).interactiveMode();
+
 //        else console.println("Collection successfully downloaded!");
 
 //        dumpManager.readCsv(map);

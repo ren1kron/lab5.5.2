@@ -63,7 +63,7 @@ public class DumpManager {
                 worker.setKey(Integer.parseInt(line[0])); // key
                 worker.setId(Integer.parseInt(line[1])); // id
                 worker.setName(line[2]); // name
-                worker.setOrganization(new Organization(line[3])); // org
+                worker.setOrganization(line[3].equals("null") ? null : new Organization(line[3])); // org
                 worker.setPosition(Position.valueOf(line[4])); // pos
                 worker.setStatus(Status.valueOf(line[5])); // status
                 worker.setSalary(Float.parseFloat(line[6])); // salary

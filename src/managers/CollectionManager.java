@@ -47,7 +47,6 @@ public class CollectionManager {
     }
 
 
-    // TODO сделать так, чтобы id получался здесь и вводился методом в InsertCommand
     /**
      * Finds free ID
      * @return Free ID
@@ -63,7 +62,7 @@ public class CollectionManager {
     }
 
     public boolean isContain(Worker worker) {
-        return worker == null || byId(worker.getId()) != null;
+        return !(worker == null || byId(worker.getId()) != null);
     }
 //    public Set<Organization> getOrganizations() {
 //        return organizations;
@@ -165,5 +164,15 @@ public class CollectionManager {
 
     public LocalDateTime getLastSaveTime() {
         return lastSaveTime;
+    }
+
+    @Override
+    public String toString() {
+        if (keyMap.isEmpty()) return "Collection is empty";
+        StringBuilder info = new StringBuilder();
+        for (var worker : keyMap.values()) {
+            info.append(worker.toString()).append("\n");
+        }
+        return info.toString().trim();
     }
 }

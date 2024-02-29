@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author ren1kron
  */
 public class StandardConsole implements Console {
-
+    private static final String P1 = "$ ";
     private static Scanner fileScanner = null;
     private static Scanner defScanner = new Scanner(System.in);
 
@@ -31,5 +31,31 @@ public class StandardConsole implements Console {
     public String readln() throws NoSuchElementException, IllegalStateException {
         return(fileScanner!=null?fileScanner:defScanner).nextLine();
     }
+
+    @Override
+    public boolean isCanReadln() {
+        return(fileScanner!=null?fileScanner:defScanner).hasNextLine();
+    }
+
+    @Override
+    public void prompt() {
+        print(P1);
+    }
+
+    @Override
+    public String getPrompt() {
+        return P1;
+    }
+
+    @Override
+    public void selectFileScanner(Scanner scanner) {
+        fileScanner = scanner;
+    }
+
+    @Override
+    public void selectConsoleScanner() {
+        fileScanner = null;
+    }
+
 
 }

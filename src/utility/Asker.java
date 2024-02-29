@@ -15,7 +15,6 @@ import java.util.NoSuchElementException;
  * @author ren1kron
  */
 public class Asker {
-    // TODO chk if inserted organization exist
     public static Worker askWorker(Console console, Integer key, int id) throws AskExitExecption {
         Worker worker;
         while (true) {
@@ -175,15 +174,12 @@ public class Asker {
 //    }
     public static Organization askOrganization(Console console) throws AskExitExecption {
         String organizationName;
-        while (true) {
-            console.print("Enter the Full name of Organization worker is associated with (ENTER if " +
-                    "organization is unknown): ");
-            var line = console.readln().trim();
-            if (line.equals("exit")) throw new AskExitExecption();
-            else if (line.isEmpty()) return null;
-//            else if (workerMap.containsKey(line)) return workerMap.get(line).getOrganization();
-            else organizationName = line; break;
-        }
+        console.print("Enter the Full name of Organization worker is associated with (ENTER if " +
+                "organization is unknown): ");
+        organizationName = console.readln().trim();
+        if (organizationName.equals("exit")) throw new AskExitExecption();
+        if (organizationName.isEmpty()) return null;
+
 
         int employeesCount;
         while (true) {
@@ -222,6 +218,7 @@ public class Asker {
 
 //        else if (organizationName)
     }
+    @Deprecated
     public static Integer askKey(Console console) throws AskExitExecption{
 //        Integer key;
         try {

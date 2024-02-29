@@ -1,6 +1,7 @@
 package utility.console;
 
 
+import java.util.Scanner;
 
 /**
  * Interface of Console for entering command and displaying the result
@@ -13,5 +14,9 @@ public interface Console {
     void println(Object obj);
     void printError(Object obj);
     String readln();
-
+    boolean isCanReadln();
+    void prompt();
+    String getPrompt();
+    void selectFileScanner(Scanner obj);
+    void selectConsoleScanner();
 }
