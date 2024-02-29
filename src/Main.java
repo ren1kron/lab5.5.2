@@ -68,4 +68,5 @@ public class Main {
 ////        dumpManager.writeCsv(map);
 //        collectionManager.saveMap();
     }
+    // TODO if sth breaks in error add sleep for 20 in "printError" method
 }

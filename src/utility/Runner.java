@@ -41,7 +41,17 @@ public class Runner {
                 console.println(commandStatus.getMessage());
             }
         } catch (NoSuchElementException e) {
-            console.printError("User input was not found!");
+            try (Scanner scanner = new Scanner(System.in)) {
+                console.printError("User input was not found!");
+                console.println("Attempt to create a new input stream...");
+                scanner.nextLine();
+            } catch (NoSuchElementException emergensyExit) {
+                console.printError("Saving data to file...");
+                runCommand(new String[]{"save", ""});
+                runCommand(new String[]{"exit", ""});
+                return;
+            }
+            interactiveMode();
         } catch (IllegalStateException e) {
             console.printError("Unexpected error!");
         }

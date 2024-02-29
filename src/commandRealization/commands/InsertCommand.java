@@ -32,7 +32,12 @@ public class InsertCommand extends Command {
         try {
             if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Wrong amount of arguments!\nYou suppose to write: '" + getName() + "'");
 
-            var key = Integer.parseInt(arguments[1].trim());
+            int key;
+            try {
+                key = Integer.parseInt(arguments[1].trim());
+            } catch (NumberFormatException e) {
+                return new ExecutionResponse(false, "Invalid key value!");
+            }
             if (collectionManager.byKey(key) != null) return new ExecutionResponse(false, "Worker with specified key already exist!");
             console.println("* Adding new Worker: ...");
             Worker worker = Asker.askWorker(console, key, collectionManager.getFreeId());

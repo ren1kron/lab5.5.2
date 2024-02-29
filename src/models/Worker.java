@@ -157,6 +157,7 @@ public Worker(Integer key, String name, Organization organization, Position posi
     }
     @Override
     public boolean validate() {
+        if (key <= 0) return false;
         if (id <= 0) return false;
         if (name==null || name.isEmpty()) return false;
         if (coordinates == null) return false;
