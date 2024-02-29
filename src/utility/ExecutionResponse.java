@@ -19,8 +19,9 @@ public class ExecutionResponse {
     public String getMessage() {
         return massage;
     }
+
     @Override
     public String toString() {
-        return String.valueOf(exitCode)+";"+massage;
+        return exitCode+";"+massage;
     }
 }
