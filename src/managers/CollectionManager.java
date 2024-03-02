@@ -41,6 +41,13 @@ public class CollectionManager {
         return idMap.get(id);
     }
 
+    /**
+     * @return Worker by their key
+     */
+    public Worker byKey(Integer key) {
+        return keyMap.get(key);
+    }
+
     @Deprecated
     public int maxId() {
         return Collections.max(idMap.keySet());
@@ -57,16 +64,11 @@ public class CollectionManager {
                 currentId = 1;
         return currentId;
     }
-    public Worker byKey(Integer key) {
-        return keyMap.get(key);
-    }
+
 
     public boolean isContain(Worker worker) {
-        return !(worker == null || byId(worker.getId()) != null);
+        return worker == null || byId(worker.getId()) != null;
     }
-//    public Set<Organization> getOrganizations() {
-//        return organizations;
-//    }
 
     /**
      * Clears keyMap and idMap
@@ -75,10 +77,6 @@ public class CollectionManager {
         keyMap.clear();
         idMap.clear();
     }
-
-//    public boolean isContain(Worker worker) {
-//        return worker == null || byId(worker.getId()) != null;
-//    }
 
     /**
      * Adds worker to maps

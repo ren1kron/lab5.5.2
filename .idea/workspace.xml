@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: new Commands&#10;upd: docs for Commands">
+    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="fix: Now if we enter invalid key using InsertCommand, app will work correctly&#10;add: Now if we press &quot;Cmd&quot;+D while app working">
+      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/ExecuteScriptCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/InsertCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/InsertCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/CollectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utility/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Runner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +98,7 @@
       <workItem from="1708289715565" duration="38788000" />
       <workItem from="1708716958250" duration="38955000" />
       <workItem from="1709027003648" duration="48043000" />
-      <workItem from="1709228141913" duration="3460000" />
+      <workItem from="1709228141913" duration="11510000" />
     </task>
     <task id="LOCAL-00001" summary="Reinstalling file in Maven">
       <option name="closed" value="true" />
@@ -196,7 +196,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709231550712</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add: new Commands&#10;upd: docs for Commands">
+      <option name="closed" value="true" />
+      <created>1709235275752</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709235275752</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix: Now if we enter invalid key using InsertCommand, app will work correctly&#10;add: Now if we press &quot;Cmd&quot;+D while app working">
+      <option name="closed" value="true" />
+      <created>1709236036920</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709236036920</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +243,8 @@
     <MESSAGE value="add: Realization for Commands and first Command – InsertCommand&#10;upd: Now worker get his id in CollectionManager. It is more stable, because now program check if for the lowest free ID" />
     <MESSAGE value="add: Runner and several Commands" />
     <MESSAGE value="add: new Commands&#10;upd: docs for Commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: new Commands&#10;upd: docs for Commands" />
+    <MESSAGE value="fix: Now if we enter invalid key using InsertCommand, app will work correctly&#10;add: Now if we press &quot;Cmd&quot;+D while app working" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Now if we enter invalid key using InsertCommand, app will work correctly&#10;add: Now if we press &quot;Cmd&quot;+D while app working" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

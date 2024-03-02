@@ -9,7 +9,7 @@ import utility.console.StandardConsole;
 
 public class Main {
 //    static Map<Integer, Worker> map = new LinkedHashMap<>();
-    public static void main(String[] args) throws AskExitExecption {
+    public static void main(String[] args) {
         var console = new StandardConsole();
         DumpManager dumpManager = new DumpManager("Workers.csv", console);
         CollectionManager collectionManager = new CollectionManager(dumpManager);
@@ -27,7 +27,7 @@ public class Main {
             register("remove_key", new RemoveKeyCommand(collectionManager));
             register("clear", new ClearCommand(collectionManager));
             register("save", new SaveCommand(collectionManager));
-            // execute script
+            register("execute_script", new ExecuteScriptCommand());
             // remove_lower
             // replace_if_greater
             // remove_greater_key

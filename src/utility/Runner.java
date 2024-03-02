@@ -42,11 +42,12 @@ public class Runner {
             }
         } catch (NoSuchElementException e) {
             try (Scanner scanner = new Scanner(System.in)) {
-                console.printError("User input was not found!");
-                console.println("Attempt to create a new input stream...");
+                console.printError("User input was not found! Attempt to create a new input stream...");
                 scanner.nextLine();
             } catch (NoSuchElementException emergensyExit) {
-                console.printError("Saving data to file...");
+                console.printError("Attempt failed!");
+//                console.printError("Saving data to file...");
+                console.print("Closing application...");
 //                runCommand(new String[]{"save", ""}); // we can add it if we want to
                 runCommand(new String[]{"exit", ""});
                 return;
@@ -143,7 +144,7 @@ public class Runner {
     }
 
     /**
-     * Runs command.
+     * Runs the command.
      * @param userCommand Running command
      * @return running code
      */
