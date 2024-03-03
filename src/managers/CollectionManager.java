@@ -93,19 +93,6 @@ public class CollectionManager {
     }
 
     /**
-     * Updates value of worker
-     * @param worker new worker with same id
-     * @return true if worker updated successfully
-     */
-    public boolean update(Worker worker) {
-        if (!isContain(worker)) return false;
-        keyMap.put(worker.getKey(), worker);
-        idMap.put(worker.getId(), worker);
-
-        return true;
-    }
-
-    /**
      * Removes worker from maps by its key
      * @param key worker's key
      * @return true if worker was successfully removed
@@ -118,6 +105,19 @@ public class CollectionManager {
         idMap.remove(worker.getId());
         return true;
     }
+
+//    /**
+//     * Removes worker from maps
+//     * @param worker worker
+//     * @return true if worker was successfully removed
+//    and false if worker was never found
+//     */
+//    public boolean remove(Worker worker) {
+//        if (worker == null || !keyMap.containsValue(worker)) return false;
+//        keyMap.remove(worker.getKey());
+//        idMap.remove(worker.getId());
+//        return true;
+//    }
 
     /**
      * Downloads collection from file

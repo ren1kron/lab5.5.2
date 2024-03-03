@@ -155,6 +155,9 @@ public Worker(Integer key, String name, Organization organization, Position posi
     public int compareTo(Element element) {
         return this.id - element.getId();
     }
+//    public float compareTo(Worker worker) {
+//        return (this.salary - worker.salary);
+//    }
     @Override
     public boolean validate() {
         if (key <= 0) return false;

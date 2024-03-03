@@ -28,7 +28,7 @@ public class Main {
             register("clear", new ClearCommand(collectionManager));
             register("save", new SaveCommand(collectionManager));
             register("execute_script", new ExecuteScriptCommand());
-            // remove_lower
+            register("remove_lower", new RemoveLowerCommand(console, collectionManager));
             // replace_if_greater
             // remove_greater_key
             // group_counting_by_creation_date

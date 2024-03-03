@@ -218,7 +218,7 @@ public class Asker {
 
 //        else if (organizationName)
     }
-    @Deprecated
+//    @Deprecated
     public static Integer askKey(Console console) throws AskExitExecption{
 //        Integer key;
         try {
