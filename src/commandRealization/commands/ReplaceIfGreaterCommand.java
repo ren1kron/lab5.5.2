@@ -8,48 +8,38 @@ import utility.Asker;
 import utility.ExecutionResponse;
 import utility.console.Console;
 
-/**
- * Command 'update id {element}'. This command updates element with inserted id
- * @author ren1kron
- */
-public class UpdateCommand extends Command {
+public class ReplaceIfGreaterCommand extends Command {
     private final Console console;
     private final CollectionManager collectionManager;
-    public UpdateCommand(Console console, CollectionManager collectionManager) {
-        super("update id {element}", "Update element of collection with inserted id");
+    public ReplaceIfGreaterCommand(Console console, CollectionManager collectionManager) {
+        super("replace_if_greater key {element}", "Replace element with specified key if new element bigger than old one");
         this.console = console;
         this.collectionManager = collectionManager;
     }
 
-    /**
-     * Applies command
-     * @param arguments Arguments for applying command
-     * @return Command status
-     */
     @Override
     public ExecutionResponse apply(String[] arguments) {
         try {
             if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Wrong amount of arguments!\nYou suppose to write: '" + getName() + "'");
 
 
-            var id = Integer.parseInt(arguments[1]);
+            var key = Integer.parseInt(arguments[1]);
 
-            var oldWorker = collectionManager.byId(id);
-            if (oldWorker == null || !collectionManager.isContain(oldWorker)) return new ExecutionResponse(false, "Worker with the specified ID does not exist!");
-//            if ((collectionManager.byId(id)) == null) return new ExecutionResponse(false, "Worker with the specified ID does not exist!");
-            var key = oldWorker.getKey();
+            var oldWorker = collectionManager.byKey(key);
+            if (oldWorker == null || !collectionManager.isContain(oldWorker)) return new ExecutionResponse(false, "Worker with the specified key does not exist. If you want to add newWorker with this key anyway, use command 'insert key {element}");
+            var id = oldWorker.getId();
             console.println("* Enter new Worker: ...");
-            Worker worker = Asker.askWorker(console, key, id);
+            Worker newWorker = Asker.askWorker(console, key, id);
 
-            if (worker != null && worker.validate()) {
+            if (newWorker != null && newWorker.validate() && (newWorker.getSalary() > oldWorker.getSalary())) {
                 collectionManager.removeByKey(key);
-                collectionManager.add(worker);
+                collectionManager.add(newWorker);
                 return new ExecutionResponse("Worker with inserted id was successfully updated!");
             } else return new ExecutionResponse(false, "Fields of inserted oldWorker are invalid. Worker wasn't updated!");
         } catch (AskExitExecption e) {
             return new ExecutionResponse(false, "Abort the operation...");
         } catch (NumberFormatException e) {
-            return new ExecutionResponse(false, "Invalid ID value!");
+            return new ExecutionResponse(false, "Invalid key value!");
         }
     }
 }

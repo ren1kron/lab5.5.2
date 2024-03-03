@@ -17,7 +17,7 @@ public class InsertCommand extends Command {
     private final CollectionManager collectionManager;
 
     public InsertCommand(Console console, CollectionManager collectionManager) {
-        super("insert null {element}", "Adds new element with specified key in collection");
+        super("insert key {element}", "Adds new element with specified key in collection");
         this.console = console;
         this.collectionManager = collectionManager;
     }

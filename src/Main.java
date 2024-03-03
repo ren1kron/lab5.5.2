@@ -29,7 +29,7 @@ public class Main {
             register("save", new SaveCommand(collectionManager));
             register("execute_script", new ExecuteScriptCommand());
             register("remove_lower", new RemoveLowerCommand(console, collectionManager));
-            // replace_if_greater
+            register("replace_if_greater", new ReplaceIfGreaterCommand(console, collectionManager));
             // remove_greater_key
             // group_counting_by_creation_date
             // filter_by_position
