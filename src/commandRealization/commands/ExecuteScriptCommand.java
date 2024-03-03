@@ -14,6 +14,11 @@ public class ExecuteScriptCommand extends Command {
 
     }
 
+    /**
+     * Applies command
+     * @param arguments Arguments for applying command
+     * @return Command status
+     */
     @Override
     public ExecutionResponse apply(String[] arguments) {
         if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Wrong amount of arguments!\nYou suppose to write: '" + getName() + "'");

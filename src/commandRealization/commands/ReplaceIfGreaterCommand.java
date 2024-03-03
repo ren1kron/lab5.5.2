@@ -8,15 +8,24 @@ import utility.Asker;
 import utility.ExecutionResponse;
 import utility.console.Console;
 
+/**
+ * Command 'replace_if_greater key {element}'. Replaces element with specified key if new element bigger than old one
+ * @author ren1kron
+ */
 public class ReplaceIfGreaterCommand extends Command {
     private final Console console;
     private final CollectionManager collectionManager;
     public ReplaceIfGreaterCommand(Console console, CollectionManager collectionManager) {
-        super("replace_if_greater key {element}", "Replace element with specified key if new element bigger than old one");
+        super("replace_if_greater key {element}", "Replaces element with specified key if new element bigger than old one");
         this.console = console;
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Applies command
+     * @param arguments Arguments for applying command
+     * @return Command status
+     */
     @Override
     public ExecutionResponse apply(String[] arguments) {
         try {
