@@ -32,7 +32,7 @@ public class Main {
             register("replace_if_greater", new ReplaceIfGreaterCommand(console, collectionManager));
             register("remove_greater_key", new ReplaceIfGreaterCommand(console, collectionManager));
             register("group_counting_by_creation_date", new GroupCountingByCreationDateCommand(collectionManager));
-            // filter_by_position
+            register("filter_by_position", new FilterByPosition(console, collectionManager));
             // print_field_descending_salary
         }};
 //        help : вывести справку по доступным командам

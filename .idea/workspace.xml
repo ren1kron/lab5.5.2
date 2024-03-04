@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: RemoveGreaterKeyCommand">
-      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/GroupCountingByCreationDateCommand.java" afterDir="false" />
+    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: GroupCountingByCreationDateCommand">
+      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/FilterByPosition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/GroupCountingByCreationDateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/GroupCountingByCreationDateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/console/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/console/Console.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +101,7 @@
       <workItem from="1708289715565" duration="38788000" />
       <workItem from="1708716958250" duration="38955000" />
       <workItem from="1709027003648" duration="48043000" />
-      <workItem from="1709228141913" duration="37867000" />
+      <workItem from="1709228141913" duration="41444000" />
     </task>
     <task id="LOCAL-00001" summary="Reinstalling file in Maven">
       <option name="closed" value="true" />
@@ -246,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709485437844</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add: GroupCountingByCreationDateCommand">
+      <option name="closed" value="true" />
+      <created>1709559772353</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1709559772353</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +292,8 @@
     <MESSAGE value="add: RemoveLowerCommand" />
     <MESSAGE value="add: ReplaceIfGreaterCommand" />
     <MESSAGE value="add: RemoveGreaterKeyCommand" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: RemoveGreaterKeyCommand" />
+    <MESSAGE value="add: GroupCountingByCreationDateCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: GroupCountingByCreationDateCommand" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

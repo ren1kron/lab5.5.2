@@ -5,9 +5,7 @@ import java.util.Scanner;
 
 /**
  * Interface of Console for entering command and displaying the result
- * //
- * Консоль для ввода команд и вывода результата
- * @author maxbarsukov
+ * @author ren1kron
  */
 public interface Console {
     void print(Object obj);
