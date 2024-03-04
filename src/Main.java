@@ -30,8 +30,8 @@ public class Main {
             register("execute_script", new ExecuteScriptCommand());
             register("remove_lower", new RemoveLowerCommand(console, collectionManager));
             register("replace_if_greater", new ReplaceIfGreaterCommand(console, collectionManager));
-            // remove_greater_key
-            // group_counting_by_creation_date
+            register("remove_greater_key", new ReplaceIfGreaterCommand(console, collectionManager));
+            register("group_counting_by_creation_date", new GroupCountingByCreationDateCommand(collectionManager));
             // filter_by_position
             // print_field_descending_salary
         }};

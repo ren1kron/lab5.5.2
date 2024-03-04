@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -151,6 +152,8 @@ public Worker(Integer key, String name, Organization organization, Position posi
     public void touchNextId() {
         nextId++;
     }
+
+//    public
     @Override
     public int compareTo(Element element) {
         return this.id - element.getId();
@@ -206,6 +209,15 @@ public Worker(Integer key, String name, Organization organization, Position posi
     public Date getCreationDate() {
         return creationDate;
     }
+//    public int getYear() {
+//        return creationDate.getYear();
+//    }
+    public int getMonth() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(creationDate);
+        return calendar.get(Calendar.MONTH);
+    }
+
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;

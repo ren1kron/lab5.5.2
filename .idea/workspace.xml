@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: RemoveLowerCommand">
-      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/ReplaceIfGreaterCommand.java" afterDir="false" />
+    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: RemoveGreaterKeyCommand">
+      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/GroupCountingByCreationDateCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/InsertCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/InsertCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commandRealization/commands/UpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commandRealization/commands/UpdateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Worker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,7 @@
       <workItem from="1708289715565" duration="38788000" />
       <workItem from="1708716958250" duration="38955000" />
       <workItem from="1709027003648" duration="48043000" />
-      <workItem from="1709228141913" duration="26250000" />
+      <workItem from="1709228141913" duration="37867000" />
     </task>
     <task id="LOCAL-00001" summary="Reinstalling file in Maven">
       <option name="closed" value="true" />
@@ -231,7 +230,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709482067757</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add: ReplaceIfGreaterCommand">
+      <option name="closed" value="true" />
+      <created>1709484629684</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1709484629684</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add: RemoveGreaterKeyCommand">
+      <option name="closed" value="true" />
+      <created>1709485437844</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1709485437844</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +281,9 @@
     <MESSAGE value="add: ExecuteScriptCommand" />
     <MESSAGE value="add: ExecuteScriptCommand&#10;fix: method &quot;isContain&quot; in CollectionManager – important method for command remove_by_key" />
     <MESSAGE value="add: RemoveLowerCommand" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: RemoveLowerCommand" />
+    <MESSAGE value="add: ReplaceIfGreaterCommand" />
+    <MESSAGE value="add: RemoveGreaterKeyCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: RemoveGreaterKeyCommand" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
