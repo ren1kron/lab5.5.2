@@ -1,5 +1,4 @@
 import commandRealization.commands.*;
-import exceptions.AskExitExecption;
 import managers.CollectionManager;
 import managers.CommandManager;
 import managers.DumpManager;
@@ -33,7 +32,7 @@ public class Main {
             register("remove_greater_key", new ReplaceIfGreaterCommand(console, collectionManager));
             register("group_counting_by_creation_date", new GroupCountingByCreationDateCommand(collectionManager));
             register("filter_by_position", new FilterByPosition(console, collectionManager));
-            // print_field_descending_salary
+            register("print_field_descending_salary", new PrintFieldDescendingSalaryCommand(collectionManager));
         }};
 //        help : вывести справку по доступным командам
 //        info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)

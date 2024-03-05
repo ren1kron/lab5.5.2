@@ -58,13 +58,15 @@ public class Asker {
             while (true) {
                 console.print("Enter \"x\" coordinates: ");
                 var line = console.readln().trim();
-                line = line.replace("\\s","");
+                line = line.replace("\\s", "");
                 if (line.equals("exit")) throw new AskExitExecption();
                 if (!line.isEmpty()) {
                     try {
-                        x = Float.parseFloat(line);
-                        break;
-                    } catch (NumberFormatException ignored) {
+                        x = Float.parseFloat(line); // Максимальное значение поля: 145
+                        if (x <= 145) break;
+//                        else console.println("Illegal value! Try again!");
+                    } catch (NumberFormatException e) {
+                        console.println(" * Illegal value! Try again! * ");
                     }
                 }
             }
@@ -72,19 +74,20 @@ public class Asker {
             while (true) {
                 console.print("Enter \"y\" coordinates: ");
                 var line = console.readln().trim();
-                line = line.replace("\\s","");
+                line = line.replace("\\s", "");
                 if (line.equals("exit")) throw new AskExitExecption();
                 if (!line.isEmpty()) {
                     try {
                         y = Double.parseDouble(line);
                         break;
                     } catch (NumberFormatException ignored) {
+                        console.println(" * Illegal value! Try again! * ");
                     }
                 }
             }
             return new Coordinates(x, y);
         } catch (NoSuchElementException | IllegalStateException e) {
-            console.printError("The value of Coordinates is illegal");
+            console.printError("The value of Coordinates is illegal!");
             return null;
         }
     }
@@ -92,12 +95,18 @@ public class Asker {
     public static float askSalary(Console console) throws AskExitExecption {
         try {
             while (true) {
-                console.print("Enter the worker's salary (in USD): $");
-                var line = console.readln().trim();
-                line = line.replace("\\s","");
-                if (line.equals("exit")) throw new AskExitExecption();
-                if (!line.isEmpty()) {
-                    return Float.parseFloat(line);
+                try {
+                    console.print("Enter the worker's salary (in USD): $");
+                    var line = console.readln().trim();
+                    line = line.replace("\\s", "");
+                    if (line.equals("exit")) throw new AskExitExecption();
+                    if (!line.isEmpty()) {
+                        var f = Float.parseFloat(line);
+                        if (f > 0) return f;
+                        else console.println("Inserted value of salary is illegal! Try again!");
+                    }
+                } catch (NumberFormatException e) {
+                    console.println(" * Illegal value! Try again! * ");
                 }
             }
         } catch (NoSuchElementException | IllegalStateException e) {
@@ -109,56 +118,63 @@ public class Asker {
     public static Position askPosition(Console console) throws AskExitExecption {
         try {
             while (true) {
-                console.print("Enter the position (" + Position.names().toLowerCase() + ") of Worker: ");
+                try {
+                    console.print("Enter the position (" + Position.names().toLowerCase() + ") of Worker: ");
 
-                var line = console.readln().trim();
-                if (line.equals("exit")) throw new AskExitExecption();
-                if (!line.isEmpty()) {
-                    try {
-//                        position = Position.valueOf(line.toUpperCase());
-//                        return position;
+                    var line = console.readln().trim();
+                    if (line.equals("exit")) throw new AskExitExecption();
+                    if (!line.isEmpty()) {
                         return Position.valueOf(line.toUpperCase());
-                    } catch (NullPointerException | IllegalArgumentException ignored) {
                     }
+                } catch (NullPointerException | IllegalArgumentException e) {
+                    console.println(" * Illegal value! Try again! * ");
                 }
             }
         } catch (NoSuchElementException | IllegalStateException e) {
-            console.printError("The value of Position is illegal");
+            console.printError("Illegal value!");
             return null;
         }
     }
 
     public static LocalDate askStartDate(Console console) throws AskExitExecption {
-        LocalDate startDate;
-        while (true) {
-            console.print("Enter Worker's Birthday in the following format: YYYY-MM-DD or " +
-                    LocalDate.now().format(DateTimeFormatter.ISO_DATE) + " : ");
-            var line = console.readln().trim();
-            if (line.equals("exit")) throw new AskExitExecption();
-            if (!line.isEmpty()) {
-                try {
-                    startDate = LocalDate.parse(line, DateTimeFormatter.ISO_DATE);
-                    break;
-                } catch (DateTimeParseException ignored) {
+        try {
+            while (true) {
+                console.print("Enter Worker's Birthday in the following format: YYYY-MM-DD or " +
+                        LocalDate.now().format(DateTimeFormatter.ISO_DATE) + " : ");
+                var line = console.readln().trim();
+                if (line.equals("exit")) throw new AskExitExecption();
+                if (!line.isEmpty()) {
+                    try {
+                        return LocalDate.parse(line, DateTimeFormatter.ISO_DATE);
+                    } catch (DateTimeParseException e) {
+                        console.println(" * Illegal value! Try again! * ");
+                    }
                 }
             }
-//            catch (NoSuchElementException | IllegalStateException e) {}
+        } catch (NoSuchElementException | IllegalStateException e) {
+            console.println(" * Illegal value! Try again! * ");
+            return null;
         }
-        return startDate;
     }
 
     public static Status askStatus(Console console) throws AskExitExecption {
-
-        while (true) {
-            console.print("Enter the Status of the Worker (" + Status.names().toLowerCase() + "): ");
-            var line = console.readln().trim();
-            if (line.equals("exit")) throw new AskExitExecption();
-            if (line.isEmpty()) return null;
-            else {
-                try {
-                    return Status.valueOf(line.toUpperCase());
-                } catch (NullPointerException | IllegalArgumentException ignored) { }
+        try {
+            while (true) {
+                console.print("Enter the Status of the Worker (" + Status.names().toLowerCase() + "): ");
+                var line = console.readln().trim();
+                if (line.equals("exit")) throw new AskExitExecption();
+                if (line.isEmpty()) return null;
+                else {
+                    try {
+                        return Status.valueOf(line.toUpperCase());
+                    } catch (NullPointerException | IllegalArgumentException e) {
+                        console.println(" * Illegal value! Try again! * ");
+                    }
+                }
             }
+        } catch (NoSuchElementException | IllegalStateException e) {
+            console.printError("Illegal value!");
+            return null;
         }
     }
 
@@ -173,47 +189,60 @@ public class Asker {
 //        }
 //    }
     public static Organization askOrganization(Console console) throws AskExitExecption {
-        String organizationName;
-        console.print("Enter the Full name of Organization worker is associated with (ENTER if " +
-                "organization is unknown): ");
-        organizationName = console.readln().trim();
-        if (organizationName.equals("exit")) throw new AskExitExecption();
-        if (organizationName.isEmpty()) return null;
+//    private String fullName; //Поле не может быть null
+//    private Integer annualTurnover; //Поле МОЖЕТ быть null, Значение поля должно быть больше 0
+//    private int employeesCount; //Значение поля должно быть больше 0
+        try {
+            String organizationName;
+            console.print("Enter the Full name of Organization worker is associated with (ENTER if " +
+                    "organization is unknown): ");
+            organizationName = console.readln().trim();
+            if (organizationName.equals("exit")) throw new AskExitExecption();
+            if (organizationName.isEmpty()) return null;
 
-
-        int employeesCount;
-        while (true) {
-            console.print("Enter the Employees count of the Organization worker associated with: ");
-            var line = console.readln().trim();
-            line = line.replace("\\s","");
-            if (line.equals("exit")) throw new AskExitExecption();
+            int employeesCount;
+            while (true) {
+                console.print("Enter the Employees count of the Organization worker associated with: ");
+                var line = console.readln().trim();
+                line = line.replace("\\s", "");
+                if (line.equals("exit")) throw new AskExitExecption();
 //            else if (line.isEmpty()) return new Organization(organizationName, null);
-            if (!line.isEmpty()) {
-                try {
-                    employeesCount = Integer.parseInt(line);
-                    break;
+                if (!line.isEmpty()) {
+                    try {
+                        employeesCount = Integer.parseInt(line);
+                        if (employeesCount > 0) break;
+//                    console.println(" * Illegal value! Try again! * ");
 //                    return new Organization(organizationName, orgAnnualTurnover);
-                } catch (NumberFormatException ignored) { }
+                    } catch (NumberFormatException e) {
+                        console.println(" * Illegal value! Try again! * ");
+                    }
+                }
             }
-        }
 
-        int orgAnnualTurnover;
-        while (true) {
-            console.print("Enter the Annual Turnover of the Organization worker is associated with in USD (ENTER if " +
-                    "annual turnover of organization is unknown): $");
-            var line = console.readln().trim();
-            line = line.replace("\\s","");
-            if (line.equals("exit")) throw new AskExitExecption();
+            int orgAnnualTurnover;
+            while (true) {
+                console.print("Enter the Annual Turnover of the Organization worker is associated with in USD (ENTER if " +
+                        "annual turnover of organization is unknown): $");
+                var line = console.readln().trim();
+                line = line.replace("\\s", "");
+                if (line.equals("exit")) throw new AskExitExecption();
 //            else if (line.isEmpty()) return new Organization(organizationName, null);
-            else if (line.isEmpty()) return new Organization(organizationName, null, employeesCount);
-            else {
-                try {
-                    orgAnnualTurnover = Integer.parseInt(line);
-                    return new Organization(organizationName, orgAnnualTurnover, employeesCount);
-                } catch (NumberFormatException ignored) { }
+                else if (line.isEmpty()) return new Organization(organizationName, null, employeesCount);
+                else {
+                    try {
+                        orgAnnualTurnover = Integer.parseInt(line);
+                        if (orgAnnualTurnover > 0)
+                            return new Organization(organizationName, orgAnnualTurnover, employeesCount);
+//                    console.println(" * Illegal value! Try again! * ");
+                    } catch (NumberFormatException e) {
+                        console.println(" * Illegal value! Try again! * ");
+                    }
+                }
             }
+        } catch (NoSuchElementException | IllegalStateException e) {
+            console.printError("Illegal value!");
+            return null;
         }
-
 
 
 //        else if (organizationName)
@@ -227,12 +256,16 @@ public class Asker {
                 var line = console.readln().trim();
                 line = line.replace("\\s","");
                 if (line.equals("exit")) throw new AskExitExecption();
-                if (!line.isEmpty()) {
-                    return Integer.parseInt(line);
+                else if (!line.isEmpty()) {
+                    try {
+                        return Integer.parseInt(line);
+                    } catch (NumberFormatException e) {
+                        console.println(" * Illegal value! Try again! * ");
+                    }
                 }
             }
         } catch (NoSuchElementException | IllegalStateException e) {
-            console.printError("The value of Key is illegal");
+            console.printError("Illegal value!");
             return null;
         }
     }
