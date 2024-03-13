@@ -27,6 +27,7 @@ public class Main {
             register("clear", new ClearCommand(collectionManager));
             register("save", new SaveCommand(collectionManager));
             register("execute_script", new ExecuteScriptCommand());
+            register("exit", new ExitCommand());
             register("remove_lower", new RemoveLowerCommand(console, collectionManager));
             register("replace_if_greater", new ReplaceIfGreaterCommand(console, collectionManager));
             register("remove_greater_key", new ReplaceIfGreaterCommand(console, collectionManager));
@@ -68,4 +69,5 @@ public class Main {
 //        collectionManager.saveMap();
     }
     // TODO if sth breaks in error add sleep for 20 in "printError" method
+    // TODO environment variable
 }

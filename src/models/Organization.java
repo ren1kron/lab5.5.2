@@ -1,11 +1,7 @@
 package models;
 
-import managers.CollectionManager;
 import utility.Validatable;
 
-import java.util.Collection;
-import java.util.Objects;
-import java.util.Set;
 
 public class Organization implements Validatable, Comparable<Organization> {
 //    public Organization(String fullName, Integer annualTurnover) {
@@ -34,6 +30,9 @@ public Organization(String fullName, Integer annualTurnover, int employeesCount)
     public Integer getAnnualTurnover() {
         return annualTurnover;
     }
+    public int getEmployeesCount() {
+        return employeesCount;
+    }
 
     public void setAnnualTurnover(Integer annualTurnover) {
         this.annualTurnover = annualTurnover;
@@ -42,10 +41,11 @@ public Organization(String fullName, Integer annualTurnover, int employeesCount)
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
-
-    public int getEmployeesCount() {
-        return employeesCount;
+    public void setEmployeesCount(int employeesCount) {
+        this.employeesCount = employeesCount;
     }
+
+
 
 //    public void EmployeeAdded() {
 //        employeesCount++;

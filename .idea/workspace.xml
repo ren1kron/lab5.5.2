@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: FilterByPosition">
-      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/PrintFieldDescendingSalaryCommand.java" afterDir="false" />
+    <list default="true" id="001e51ae-6762-4a9b-bf54-80b5c1e7365a" name="Changes" comment="add: PrintFieldDescendingSalaryCommand&#10;I have finally done all commands&#10;upd: Asker – now it's validate values better">
+      <change afterPath="$PROJECT_DIR$/src/commandRealization/commands/ExitCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Workers.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Organization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Worker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utility/Asker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Asker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +104,8 @@
       <workItem from="1708716958250" duration="38955000" />
       <workItem from="1709027003648" duration="48043000" />
       <workItem from="1709228141913" duration="51391000" />
-      <workItem from="1709651114986" duration="336000" />
+      <workItem from="1709651114986" duration="2139000" />
+      <workItem from="1710346101023" duration="1047000" />
     </task>
     <task id="LOCAL-00001" summary="Reinstalling file in Maven">
       <option name="closed" value="true" />
@@ -263,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709563639058</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add: PrintFieldDescendingSalaryCommand&#10;I have finally done all commands&#10;upd: Asker – now it's validate values better">
+      <option name="closed" value="true" />
+      <created>1709651701624</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1709651701624</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +314,8 @@
     <MESSAGE value="add: RemoveGreaterKeyCommand" />
     <MESSAGE value="add: GroupCountingByCreationDateCommand" />
     <MESSAGE value="add: FilterByPosition" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: FilterByPosition" />
+    <MESSAGE value="add: PrintFieldDescendingSalaryCommand&#10;I have finally done all commands&#10;upd: Asker – now it's validate values better" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: PrintFieldDescendingSalaryCommand&#10;I have finally done all commands&#10;upd: Asker – now it's validate values better" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

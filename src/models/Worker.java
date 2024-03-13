@@ -170,6 +170,7 @@ public Worker(Integer key, String name, Organization organization, Position posi
         if (creationDate == null) return false;
         if (salary <= 0) return false;
         if (startDate == null) return false;
+
 //        if (organization == null) return false;
 //        if (status == null) return false;
         return (position != null);

@@ -64,7 +64,7 @@ public class Asker {
                     try {
                         x = Float.parseFloat(line); // Максимальное значение поля: 145
                         if (x <= 145) break;
-//                        else console.println("Illegal value! Try again!");
+                        else console.println("Illegal value! Try again!");
                     } catch (NumberFormatException e) {
                         console.println(" * Illegal value! Try again! * ");
                     }
@@ -211,7 +211,7 @@ public class Asker {
                     try {
                         employeesCount = Integer.parseInt(line);
                         if (employeesCount > 0) break;
-//                    console.println(" * Illegal value! Try again! * ");
+                        else console.println(" * Illegal value! Try again! * ");
 //                    return new Organization(organizationName, orgAnnualTurnover);
                     } catch (NumberFormatException e) {
                         console.println(" * Illegal value! Try again! * ");
@@ -233,7 +233,7 @@ public class Asker {
                         orgAnnualTurnover = Integer.parseInt(line);
                         if (orgAnnualTurnover > 0)
                             return new Organization(organizationName, orgAnnualTurnover, employeesCount);
-//                    console.println(" * Illegal value! Try again! * ");
+                        else console.println(" * Illegal value! Try again! * ");
                     } catch (NumberFormatException e) {
                         console.println(" * Illegal value! Try again! * ");
                     }
